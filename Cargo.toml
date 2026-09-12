@@ -1,0 +1,37 @@
+[package]
+name = "mc-chunk-hash"
+version = "0.1.0"
+edition = "2021"
+description = "Minecraft 区块哈希快照与比对的独立工具"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5.60", features = ["derive"] }
+humantime = "2.3.0"
+indicatif = "0.17.11"
+walkdir = "2.5.0"
+
+xxhash-rust = { version = "0.8.15", features = ["xxh3", "xxh64", "xxh32"] }
+
+rkyv = "0.8"
+memmap2 = "0.9"
+
+zstd = { version = "0.13.3", default-features = false, features = ["arrays", "legacy"] }
+flate2 = { version = "1.1.9", default-features = false, features = ["zlib-rs"] }
+lz4_flex = { version = "0.12.2", default-features = false, features = ["frame"] }
+byteorder = "1.5.0"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+fastnbt = "2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+debug-assertions = false
