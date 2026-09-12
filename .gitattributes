@@ -1,0 +1,16 @@
+# 统一使用 LF 行尾，避免 Windows 下的 CRLF 污染
+* text=auto
+
+# 源码与配置强制 LF
+*.rs    text eol=lf
+*.toml  text eol=lf
+*.md    text eol=lf
+*.lock  text eol=lf
+
+# 二进制文件不要做行尾转换
+*.exe   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.wasm  binary
